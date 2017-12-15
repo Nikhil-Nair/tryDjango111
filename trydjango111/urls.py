@@ -18,11 +18,14 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from newsletter.views import home, contact
+from trydjango111.views import about
 
 urlpatterns = [
     url(r'^$', home, name = 'home'),
     url(r'^contact/$', contact, name = 'contact'),
     url(r'^admin/', admin.site.urls),
+    url(r'^about/$', about, name = 'about'),
+    url(r'^accounts/', include('registration.backends.default.urls'), name = 'accounts'),
 
 ]
 if settings.DEBUG:

@@ -1,0 +1,11 @@
+.jumbotron{
+  background-color: #005c28;
+  color : #fff
+}
+.text-align-center {
+	text-align: center;
+}
+
+.bg-dark {
+    background-color: #005c28 !important;
+}

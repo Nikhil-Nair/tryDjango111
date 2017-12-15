@@ -25,9 +25,10 @@ def home(request):
         }
 
 
-    return render(request, "base.html", context)
+    return render(request, "home.html", context)
 
 def contact(request):
+    title = "Contact Us"
     form = ContactForm(request.POST or None)
     if form.is_valid():
         form_email = form.cleaned_data.get("email")
@@ -35,7 +36,7 @@ def contact(request):
         form_full_name = form.cleaned_data.get("full_name")
 
 
-        subject = "site Contact Form"
+        subject = "Site Contact Form"
         from_email = settings.EMAIL_HOST_USER
         to_email = [from_email,'yourotheremail@email.com']
         contact_message = "%s: %s via %s"%(
@@ -53,5 +54,6 @@ def contact(request):
 
     context = {
         "form" : form,
+        "title" : title
     }
     return render(request, "forms.html", context)

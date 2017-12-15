@@ -1,5 +1,31 @@
-<form method = 'POST' action=''>{% csrf_token %}
-  {{ form.as_p }}
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
 
-  <input type = 'submit' value = 'Submit'/>
-</form>
+{% block content %}
+
+{% if title %}
+<div class="row padding">
+  <h1 class="col-12 text-align-center">{{ title }}</h1>
+</div>
+{% endif %}
+<div class="row ">
+  <div class="col-4 text-align-center padding">
+    <h2>Address</h2>
+  </div>
+
+  <div class="col-4 text-align-center padding">
+    <h2>Another pane</h2>
+  </div>
+
+  <div class="col-4 text-align-center padding" >
+        <h2>Contact Us</h2>
+        <form class="float-center" method = 'POST' action=''>{% csrf_token %}
+        {{ form | crispy}}
+
+        <input class = 'btn btn-outline-primary float-center'  type = 'submit' value = 'Submit'/>
+
+        </form>
+  </div>
+</div>
+
+{% endblock %}
